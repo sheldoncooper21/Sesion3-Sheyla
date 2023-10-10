@@ -8,6 +8,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+
+
 import pkg.Cuenta;
 
 class testCuenta {
@@ -38,7 +40,8 @@ class testCuenta {
 	
 	@Test
 	void testRetirar() {
-		fail("Not yet implemented");
+		ctaPruebas.retirar(2500);
+		assertEquals(500, ctaPruebas.getSaldo());
 	}
 
 }
