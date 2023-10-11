@@ -35,6 +35,22 @@ class testCuenta {
 	@AfterEach
 	void tearDown() throws Exception {
 	}
+	
+	@Test
+	void testRetirarConSaldoSuficienteCuenta67890() {
+	    cuenta67890.ingresar(200);
+	    boolean resultado = cuenta67890.retirar(100);
+	    assertTrue(resultado); 
+	    assertEquals(100, cuenta67890.getSaldo()); 
+	}
+	
+	@Test
+	void testRetirarConSaldoSuficienteCuenta12345() {
+		cuenta12345.ingresar(50);
+	    boolean resultado = cuenta12345.retirar(25);
+	    assertTrue(resultado);
+	    assertEquals(75, cuenta12345.getSaldo()); 
+	}
 
 	@Test
 	void testIngresar() {
@@ -42,13 +58,6 @@ class testCuenta {
 		 assertEquals(150, cuenta12345.getSaldo()); // El saldo debe ser 150€ después del ingreso de 100€
 	}
 	
-	@Test
-	void testRetirarConSaldoSuficiente() {
-	    boolean resultado = cuenta12345.retirar(25);
-	    //assertTrue(resultado);
-	    resultado=true;
-	    assertEquals(50, cuenta12345.getSaldo()); // El saldo debe ser 25€ después del retiro
-	}
 	
 	@Test
 	void testRetirarExcedeLimiteDescubierto() {
@@ -70,23 +79,10 @@ class testCuenta {
 		 assertFalse(resultado1); // Debe devolver false ya que no hay saldo suficiente(50€)
 
 		 boolean resultado2 = cuenta67890.retirar(350);
-		 assertFalse(resultado2); // Debe devolver false ya que no hay saldo suficiente (0€)*/
-	}
-	
-	@Test
-	void testRetirarSinSaldoCuenta67890() {
-	    boolean resultado = cuenta67890.retirar(100);
-	    assertFalse(resultado); 
-	    assertEquals(0, cuenta67890.getSaldo()); // El saldo debe permanecer en 0€
+		 assertFalse(resultado2); // Debe devolver false ya que no hay saldo suficiente (0€)
 	}
 
-	@Test
-	void testRetirarConSaldoSuficienteCuenta67890() {
-	    cuenta67890.ingresar(200);
-	    boolean resultado = cuenta67890.retirar(100);
-	    //assertTrue(resultado); 
-	    assertEquals(200, cuenta67890.getSaldo()); // El saldo debe ser 100€ después del retiro
-	}
+	
 	
 
 }

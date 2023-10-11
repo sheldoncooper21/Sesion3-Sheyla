@@ -23,16 +23,16 @@ public class Cuenta {
      }
      
      public boolean retirar(double x) {
-        
-    	 if (saldo - x >= 500) { 
-    		 saldo -= x;
-    		 Movimiento movimiento = new Movimiento(x, "Reintegro");
-    		 mMovimientos.add(movimiento);
-    		 return true;
-    	 } else {
-    		 return false; // Fondos insuficientes
-    	 }
-     }
+    	 if (saldo >= x && saldo - x >= -500) {
+    	        saldo -= x;
+    	        Movimiento movimiento = new Movimiento(x, "Reintegro");
+    	        mMovimientos.add(movimiento);
+    	        return true;
+    	    } else {
+    	        return false; // Fondos insuficientes
+    	    }
+    	}
+
 
      public double getSaldo() {
          return this.saldo;
