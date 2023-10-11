@@ -13,11 +13,12 @@ import org.junit.jupiter.api.Test;
 import pkg.Cuenta;
 
 class testCuenta {
-	Cuenta ctaPruebas;
+	
+	private Cuenta cuenta12345;
+    private Cuenta cuenta67890;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		
 	}
 
 	@AfterAll
@@ -26,7 +27,8 @@ class testCuenta {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		ctaPruebas.setSaldo(0);
+		cuenta12345 = new Cuenta("12345", 50);
+        cuenta67890 = new Cuenta("67890", 0);
 	}
 
 	@AfterEach
@@ -47,8 +49,11 @@ class testCuenta {
 	
 	@Test
 	void testRetirarSinSaldo() {
-		ctaPruebas.retirar(2500);
-		assertEquals(0, ctaPruebas.getSaldo());
+		 boolean resultado1 = cuenta12345.retirar(200);
+		 assertFalse(resultado1); // Debe devolver false ya que no hay saldo suficiente(50€)
+
+		 boolean resultado2 = cuenta67890.retirar(350);
+		 assertFalse(resultado2); // Debe devolver false ya que no hay saldo suficiente (0€)
 	}
 	
 
