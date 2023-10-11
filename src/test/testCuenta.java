@@ -41,7 +41,7 @@ class testCuenta {
     void testRetirosEIngresos12345() {
         // Retirar 200 euros, saldo inicial 50
         boolean resultado1 = cuenta12345.retirar(200);
-        assertEquals(-50, cuenta12345.getSaldo());
+        assertEquals(-150, cuenta12345.getSaldo());
 
         // Ingresar 200 euros, saldo después del retiro -150
         cuenta12345.ingresar(200);
@@ -66,7 +66,7 @@ class testCuenta {
     void testRetirosEIngresos67890() {
         // Reintegro de 350 euros, saldo inicial 0
         boolean resultado1 = cuenta67890.retirar(350);
-        assertEquals(-50, cuenta67890.getSaldo());
+        assertEquals(-350, cuenta67890.getSaldo());
 
         // Ingreso de 150 euros, saldo después del ingreso -350 + 150 = -200
         cuenta67890.ingresar(150);
