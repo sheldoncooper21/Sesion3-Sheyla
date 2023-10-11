@@ -1,50 +1,48 @@
 package pkg;
+
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Cuenta {
 
-	 private String mNumero; 
-     private String nTitular; 
-     private double saldo;
-     private List <Movimiento> mMovimientos;
-     
-     public Cuenta(String numero, double saldoInicial) {
-         this.mNumero = numero;
-         this.saldo = saldoInicial;
-         this.mMovimientos = new ArrayList<>();
-     }
+	private String mNumero;
+	private String nTitular;
+	private double saldo;
+	private List<Movimiento> mMovimientos;
 
-     public void ingresar(double x) {
-         saldo=saldo + x; //aumentamos el saldo actual
-         Movimiento movimiento = new Movimiento(x, "Ingreso"); //registramos el movimiento
-         mMovimientos.add(movimiento); //añadimos a la lista
-     }
-     
-     public boolean retirar(double x) {
-    	 if ( saldo - x >= -500) {
-    	        saldo -= x;
-    	        Movimiento movimiento = new Movimiento(x, "Reintegro");
-    	        mMovimientos.add(movimiento);
-    	        return true;
-    	    } else {
-    	        return false; // Fondos insuficientes
-    	    }
-    	}
+	public Cuenta(String numero, double saldoInicial) {
+		this.mNumero = numero;
+		this.saldo = saldoInicial;
+		this.mMovimientos = new ArrayList<>();
+	}
 
+	public void ingresar(double x) {
+		saldo = saldo + x; // aumentamos el saldo actual
+		Movimiento movimiento = new Movimiento(x, "Ingreso"); // registramos el movimiento
+		mMovimientos.add(movimiento); // añadimos a la lista
+	}
 
-     public double getSaldo() {
-         return this.saldo;
-     }
+	public boolean retirar(double x) {
+		if (saldo - x >= -500) {
+			saldo -= x;
+			Movimiento movimiento = new Movimiento(x, "Reintegro");
+			mMovimientos.add(movimiento);
+			return true;
+		} else {
+			return false; // Fondos insuficientes
+		}
+	}
+
+	public double getSaldo() {
+		return this.saldo;
+	}
 
 	public void setSaldo(int i) {
 		this.saldo = i;
 	}
 
 	public List<Movimiento> getMovimientos() {
-        return mMovimientos;
-    }
-
+		return mMovimientos;
+	}
 
 }
