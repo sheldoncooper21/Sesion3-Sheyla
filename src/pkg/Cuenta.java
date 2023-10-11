@@ -34,9 +34,9 @@ public class Cuenta {
     	 }
      }
 
-     public double getSaldo() {
+     /*public double getSaldo() {
          return this.saldo;
-     }
+     }*/
 
 	public void setSaldo(int i) {
 		this.saldo = i;
