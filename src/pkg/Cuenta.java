@@ -24,7 +24,7 @@ public class Cuenta {
      
      public boolean retirar(double x) {
         
-    	 if (saldo - x >= -500) { 
+    	 if (saldo - x >= 500) { 
     		 saldo -= x;
     		 Movimiento movimiento = new Movimiento(x, "Reintegro");
     		 mMovimientos.add(movimiento);
