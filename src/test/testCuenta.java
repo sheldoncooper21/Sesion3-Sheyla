@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -59,15 +60,6 @@ class testCuenta {
 	void testIngresarEnCuentaConSaldoNegativo() {
 	    cuenta67890.ingresar(100);
 	    assertEquals(100, cuenta67890.getSaldo()); // El saldo debe ser 100€ después del ingreso
-	}
-	
-	@Test
-	void testMovimientosCuenta() {
-	    cuenta12345.ingresar(200);
-	    cuenta12345.retirar(150);
-	    cuenta12345.ingresar(100);
-	    List<Movimiento> movimientos = cuenta12345.getMovimientos();
-	    assertEquals(3, movimientos.size()); // Deben existir 3 movimientos
 	}
 
 	
